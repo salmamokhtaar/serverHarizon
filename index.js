@@ -36,11 +36,11 @@ app.post('/signup', async (req, res) => {
 
 // Login Route
 app.post('/login', async (req, res) => {
-  const { username, email, password } = req.body;
+  const { email, password } = req.body; // Remove username from here
 
   try {
-    // Find user by either username or email
-    const user = await User.findOne({ $or: [{ username }, { email }] });
+    // Find user by email only
+    const user = await User.findOne({ email }); // Only search by email
     if (!user) {
       return res.status(400).json({ message: 'Invalid credentials' });
     }
