@@ -12,8 +12,7 @@ const app = express();
 app.use(express.json()); // Middleware to parse JSON bodies
 
 app.use(cors({
-  origin: 'https://harizon.vercel.app/' // For local development
-  // or your production URL, e.g. https://your-frontend-url.vercel.app
+  origin: 'https://harizon.vercel.app' // No trailing slash
 }));
 const PORT = process.env.PORT || 5000;
 
